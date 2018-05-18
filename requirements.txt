@@ -7,4 +7,3 @@ mpmath==1.0.0
 Pillow==5.1.0
 pytz==2018.4
 sympy==1.1.1
-whitenoise-3.3.1
