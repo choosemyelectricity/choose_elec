@@ -1,0 +1,81 @@
+body { padding-top: 70px; }
+@media screen and (max-width: 768px) {
+    body { padding-top: 70px; }
+}
+
+@media screen and (max-width: 992px) {
+    .container { 
+      max-width: 992px;
+    }
+}
+
+.border-bottom { border-bottom: 1px solid #e5e5e5; }
+
+.nav-shadow { box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05); }
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+.form-control::-webkit-input-placeholder { /* WebKit browsers */
+    color: transparent;
+}
+.form-control:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+   color: transparent;
+}
+.form-control::-moz-placeholder { /* Mozilla Firefox 19+ */
+   color: transparent;
+}
+.form-control :-ms-input-placeholder { /* Internet Explorer 10+ */
+   color: transparent;
+}
+
+#info-body button {
+    max-width: 150px !important;
+    margin: auto;
+}
+
+.vertical-right-aligned {
+    transform: rotate(-90deg);
+    transform-origin: 100% 100%;
+    position: fixed;
+    right: 0;
+    top: 50%;
+    z-index: 100;
+}
+
+label {
+  margin-bottom: 0.1rem;
+}
+
+@media (max-width: 992px) {
+  .mydivs {
+    max-height: 210px;
+    overflow-y: auto;
+  }
+}
+
+@media (max-width: 576px) {
+  .mydivs {
+    max-height: 110px;
+    overflow-y: auto;
+  }
+}
+
+.header-small-padding{
+  padding: .25rem 1.25rem;
+}
+
+.p-no-btm-margin{
+  margin-bottom: 0;
+}
+
+.output .card-body{
+  padding: 0.5rem 1.25rem;
+}
+
