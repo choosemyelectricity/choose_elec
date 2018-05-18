@@ -5,6 +5,7 @@ django-tellme==0.6.5
 django-widget-tweaks==1.4.2
 mpmath==1.0.0
 Pillow==5.1.0
+psycopg2==2.7.3.2
 python-decouple==3.1
 pytz==2018.4
 sympy==1.1.1
