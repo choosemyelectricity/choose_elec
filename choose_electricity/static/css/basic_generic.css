@@ -79,11 +79,3 @@ label {
   padding: 0.5rem 1.25rem;
 }
 
-.card-body {
-  display: flex;
-  flex-direction: column;
-}
-
-button.btn {
-  margin-top: auto;
-}
