@@ -344,7 +344,9 @@ def contact(request):
             message = data['message']
             body = name + " " + message
             try:
-                email_msg = EmailMessage(topic, body, email, ['youremail'], reply_to=[email])
+                email_msg = EmailMessage(topic, body, email,
+                                         ['choosemyelectricity@gmail.com'],
+                                         reply_to=[email])
                 email_msg.send()
             except BadHeaderError:
                 return HttpResponse('Invalid header found.')
