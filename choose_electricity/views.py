@@ -101,8 +101,6 @@ def prepare_output(plan):
         plan_type = 'FLAT RATE Plan'
         plan_summary = '${} per month'.format(rate)
     elif plan_type == 'pd':
-        print plan.peak_rate_wd
-        print plan.offpeak_rate_wd
         peak = '{0:.2f}'.format(plan.peak_rate_wd*100)
         offpeak = '{0:.2f}'.format(plan.offpeak_rate_wd*100)
         plan_type = 'PEAK/OFFPEAK Discount Plan'
@@ -289,8 +287,6 @@ def output(request):
 
         previous_filters = {'providers': providers, 'plan': plan, 'clean_energy': clean_energy}
 
-        print clean_energy, providers
-
         import operator
         import decimal
         from django.db.models import Q
@@ -320,8 +316,7 @@ def output(request):
     else:
         previous_filters = {'providers': [], 'plan': [], 'clean_energy': 'no_pref'}
         price_plans = list(PricePlan.objects.all())
-
-    print price_plans        
+      
     output = compare_bill(price_plans, monthly_consumption, hourly_consumption, CURRENT_TARIFF)
     return render(
         request,
