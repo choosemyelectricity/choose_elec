@@ -1,0 +1,137 @@
+{% extends "base_generic.html" %}
+
+{% load bootstrap4 %}
+{% load widget_tweaks %}
+
+{% load static %}
+
+{% block content %}
+
+
+  <div class="container py-3">
+    <div class="row">
+      <div class="col-lg-3">
+        <div class="container py-3">
+          <div class="row">
+            <div class="col-12">
+              <div class="card mb-1">
+                <div class="card-header">
+                  <h5 class="my-0">Filter by <span class="float-right"><ion-icon name="options"></ion-icon></span></h5> 
+
+                </div>
+              </div>
+            </div>
+          </div>
+          <form method="post">
+            {% csrf_token %}
+
+            {% for hidden_field in form.hidden_fields %}
+              {{ hidden_field }}
+            {% endfor %}
+            <div class="row">
+              <div class="col-sm-6 col-lg-12">
+                <div class="card mb-2 box-shadow">
+                  <div class="card-header header-small-padding">
+                    <h5 class="my-0">Provider</h5>
+                  </div>
+                  <div class="mydivs">
+                    {% for short, long in filters.providers %}
+                      <div class="custom-control custom-checkbox">
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" value="{{ short }}" id="{{ short }}" name="providers" {% if short in previous_filters.providers %}checked{% endif %}>
+                          <label class="form-check-label" for="{{ short }}">{{ long }}</label>
+                        </div>
+                      </div>
+                    {% endfor %}
+                  </div>
+                </div>
+              </div>
+              
+              <div class="col-sm-6 col-lg-12">
+                <div class="row">
+                  <div class="col-12">
+                    <div class="card mb-2 box-shadow">
+                      <div class="card-header header-small-padding">
+                        <h5 class="my-0">Plan Type</h5>
+                      </div>
+                      <div class="mydivs">
+                        {% for short, long in filters.plans %}
+                          <div class="custom-control custom-checkbox">
+                            <div class="form-check">
+                              <input class="form-check-input" type="checkbox" value="{{ short }}" id="{{ short }}" name="plans" {% if short in previous_filters.plan %}checked{% endif %}>
+                              <label class="form-check-label" for="{{ short }}">{{ long }}</label>
+                            </div>
+                          </div>
+                        {% endfor %}
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-12">
+                    <div class="card mb-2 box-shadow">
+                      <div class="card-header header-small-padding">
+                        <h5 class="my-0">Clean Energy</h5>
+                      </div>
+                      <div class="mydivs">
+                        {% for short, long in filters.energy %}
+                          <div class="custom-control custom-checkbox">
+                            <div class="form-check">
+                              <input class="form-check-input" type="radio" value="{{ short }}" id="{{ short }}" name="energy" {% if short == previous_filters.clean_energy %}checked{% endif %}>
+                              <label class="form-check-label" for="{{ short }}">{{ long }}</label>
+                            </div>
+                          </div>
+                        {% endfor %}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+            <button type="submit" class="btn btn-primary">Filter</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="col-lg-9">
+
+        <div class="output">
+          {% for provider, name, plan_type, plan_summary, contract_summary, remarks, link, date, cost in output %}
+            <div class="container py-3">
+              <div class="card">
+                <div class="row">
+                  <div class="col-sm-5 text-center text-sm-left col-md-3 px-3">
+                    <div class="card-body">
+      		            <img style="max-width: 150px" src="{% get_static_prefix %}{{ provider }}"/>
+      		            <h4 class="card-title"> {{ name }}</h4>
+      	            </div>
+      	          </div>      
+                  <div class="col-sm-7 text-center text-sm-left col-md-6 px-3">
+                    <div class="card-body">   
+                      <ul class="list-unstyled">
+                        <li><h4 class="card-title">{{ plan_type }} </h4></li>
+      		              <li>{{ plan_summary }} </li>
+                        <li>{{ contract_summary }} </li>
+                        <li>{{ remarks }} </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="col-md-3 px-3">
+                    <div class="card-body text-center" id="info-body">
+                      <p class="card-text">Effective cost:</p>
+                      <h4 class="card-title">${{ cost }} <small class="text-muted">/ mo</small></h4>
+                      <a target="_blank" href="{{ link }}"><button type="button" class="btn custom btn-md btn-block btn-outline-primary">Visit Site</button></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <p class="text-right text-muted pr-3 p-no-btm-margin"> Accurate as at {{ date }}</p>
+            </div>
+            {% endfor %}
+        </div> 
+      </div>
+    </div>   
+  </div>
+
+  
+{% endblock %}
