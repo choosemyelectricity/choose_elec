@@ -11,7 +11,7 @@
 
     <div class="container">
       <p> Please enter your average hourly usage in kWh. </p>
-      <form method="post" novalidate>
+      <form method="post">
         {% csrf_token %}
 
         {% for hidden_field in form.hidden_fields %}

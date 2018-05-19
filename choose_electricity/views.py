@@ -318,10 +318,14 @@ def output(request):
         price_plans = list(PricePlan.objects.all())
       
     output = compare_bill(price_plans, monthly_consumption, hourly_consumption, CURRENT_TARIFF)
+
+    sp_cost = '{0:.2f}'.format(monthly_consumption * CURRENT_TARIFF)
+    
     return render(
         request,
         'output.html',
-        context = {'output': output, 'filters': filters, 'previous_filters': previous_filters}
+        context = {'output': output, 'filters': filters,
+                   'previous_filters': previous_filters, 'sp_cost': sp_cost}
     )
 
 from django.core.mail import BadHeaderError, EmailMessage

@@ -27,12 +27,26 @@ class HourlyForm(forms.Form):
     ninePM = forms.DecimalField(label = '9pm - 10pm')
     tenPM = forms.DecimalField(label = '10pm - 11pm')
     elevenPM = forms.DecimalField(label = '11pm - 12am')
-    
+
+    def clean(self):
+        cleaned_data = super(HourlyForm, self).clean()
+        for key in cleaned_data.keys():
+            if cleaned_data[key] < 0:
+                msg = "Electricity consumption cannot be negative."
+                self.add_error(key, msg)
+        if sum(cleaned_data.values()) <= 0:
+            raise forms.ValidationError("Total electricity consumption must be greater than 0 kWh.")
+        
 
 class MonthlyForm(forms.Form):
     
-    monthly_usage = forms.DecimalField(label = 'Monthly Usage (kWh)')
+    monthly_usage = forms.DecimalField(label = 'Monthly Usage (kWh)', error_messages={'invalid':"you custom error message"})
 
+    def clean(self):
+        cleaned_data = super(MonthlyForm, self).clean()
+        if cleaned_data['monthly_usage'] <= 0:
+            msg = "Please enter a positive number."
+            self.add_error('monthly_usage', msg)
 
 HOUSING_CHOICES = (
     ('oneRoom', 'HDB 1-Room'),

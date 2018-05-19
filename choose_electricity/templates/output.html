@@ -95,6 +95,14 @@
 
       <div class="col-lg-9">
 
+        <div class="container py-3">
+          <div class="card">
+            <div class="text-center">
+              <h4>SP electricity bill: ${{ sp_cost }}/month</h4>
+            </div>
+          </div>
+        </div>
+
         <div class="output">
           {% if output %}
             {% for provider, name, plan_type, plan_summary, contract_summary, remarks, link, date, cost in output %}
