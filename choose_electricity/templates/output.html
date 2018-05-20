@@ -16,7 +16,7 @@
             <div class="col-12">
               <div class="card mb-1">
                 <div class="card-header">
-                  <h5 class="my-0">Filter by <span class="float-right"><ion-icon name="options"></ion-icon></span></h5> 
+                  <h5 class="my-0">Filter by <span class="float-right fas fa-sliders-h"></span></h5> 
 
                 </div>
               </div>
@@ -98,7 +98,7 @@
         <div class="container py-3">
           <div class="card">
             <div class="text-center">
-              <h4>SP electricity bill: ${{ sp_cost }}/month</h4>
+              <h4>Estimated SP electricity bill: ${{ sp_cost }}/month</h4>
             </div>
           </div>
         </div>
@@ -127,7 +127,7 @@
                     </div>
                     <div class="col-md-3 px-3">
                       <div class="card-body text-center" id="info-body">
-                        <p class="card-text">Effective cost:</p>
+                        <p class="card-text">Effective cost:<span  tooltip="Incentives, TLF, and other costs are factored into the effective cost. See 'Calculation' for more details."><i class="far fa-question-circle"></i></span></p>
                         <h4 class="card-title">${{ cost }} <small class="text-muted">/ mo</small></h4>
                         <a target="_blank" href="{{ link }}"><button type="button" class="btn custom btn-md btn-block btn-outline-primary">Visit Site</button></a>
                       </div>

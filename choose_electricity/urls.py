@@ -9,6 +9,7 @@ urlpatterns = [
     url(r'^housing_form/$', views.housing_form, name = 'housing_form'),
     url(r'^contact/$', views.contact, name = 'contact'),
     url(r'^output/$', views.output, name = 'output'),
+    url(r'^calculation/$', views.calculation, name = 'calculation'),
     ]
 
 from django.conf.urls import include

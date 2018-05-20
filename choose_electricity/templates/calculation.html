@@ -1,0 +1,41 @@
+{% extends "base_generic.html" %}
+
+{% load bootstrap4 %}
+
+{% block content %}
+  <div class="basic-content">
+    <h1>Choose My Electricity</h1>
+
+    <hr>
+
+    <div class="container px-5">
+      <p>This page explains how the calculation is done to obtain the effective monthly cost for the various price plans.</p>
+      <p>In short, the effective monthly cost displayed in the output page gives the average monthly cost over the contract period, in which Transmission Loss Factor (TLF) and other incentives and cost, where applicable have been accounted for.</p>
+
+      <h4>Calculation for Discount off the regulated tariff and Fixed price plan</h4>
+
+      <p>The monthly electricity consumption adjusted for TLF where applicable and multiplied by the implied tariff rate. Then, any incentive provided is subtracted from the cost to obtain the effective monthly cost.</p>
+      <p>If hourly data is provided, monthly electricity consumption is estimated by summing over the hourly data to obtain daily electricity consumption and multiplying by the average number of days in a month. </p>
+      <p>If housing information is provided, monthly electricity consumption is estimated using average of the monthly consumption for the housing type over the past 12 months published by EMA.</p>
+
+      <h4>Example</h4>
+
+      <p>If the monthly electricity consumption is 330 kWh, SP regulated tariff is $0.2215/kWh, effective monthly cost for a 24 months Discount plan with free first 2 months usage at 15% off regulated tariff with TLF charged would be calculated as follow:<br />
+      kWh charged = 330 * TLF = 330 * 1.03493 = 310.479<br />
+      Cost per kWh = (1 – 0.15) * 0.2215 = 0.188275<br />
+      Monthly cost = 58.4554<br />
+      Total cost over contract period = 1402.9304<br />
+      Free 2 months usage = 58.4554 * 2 = 116.9109<br />
+      Effective total cost over contract period = 1402.9304 - 116.9109<br />
+      Effective monthly cost = 53.58</p>
+
+      <h4>Calculation for Peak/ off-Peak plan</h4>
+      <p>If hourly data is provided, daily peak period and off-peak period electricity consumption is first calculated based on the plan specified peak and off-peak period, adjusted for TLF where applicable. Then they are multiplied by the tariff rates for the respective period and likewise incentives and other costs are considered.</p>
+      <p>If hourly data is not provided, hourly data is estimated using the load profile of household’s typical electricity consumption in a day published by EMA.</p>
+
+    </div>
+
+
+  </div>
+  
+{% endblock %}

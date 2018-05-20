@@ -328,6 +328,12 @@ def output(request):
                    'previous_filters': previous_filters, 'sp_cost': sp_cost}
     )
 
+def calculation(request):
+    return render(
+        request,
+        'calculation.html',
+    )
+
 from django.core.mail import BadHeaderError, EmailMessage
 from django.http import HttpResponse
 

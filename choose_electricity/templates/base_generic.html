@@ -18,6 +18,7 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.css" rel="stylesheet"/>
   <link rel="stylesheet" href="{% static 'css/basic_generic.css' %}">
   <link href="{% static 'tellme/feedback.min.css' %}" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
   {% block extra_head %}{% endblock %}
 </head>
 
@@ -35,7 +36,11 @@
           <a class="nav-link" href="{% url 'index' %}">Home<span class="sr-only">(current)</span></a>
         </li>
           <li class="nav-item">
-          <a class="nav-link" href="{% url 'contact' %}">Contact Us</a>
+            <a class="nav-link" href="{% url 'calculation' %}">Calculation</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'contact' %}">Contact Us</a>
+          </li>
         </li>
       </ul>
     </div>
