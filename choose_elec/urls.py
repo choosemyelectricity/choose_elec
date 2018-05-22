@@ -15,9 +15,11 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
+from django.http import HttpResponse
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^robots.txt', lambda x: HttpResponse("User-Agent: *\nDisallow: /admin/\nDisallow: /index/output/\nDisallow: /index/contact/", content_type="text/plain"), name="robots_file")
 ]
 
 from django.conf.urls import include
