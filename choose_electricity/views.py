@@ -13,7 +13,7 @@ from .forms import HousingForm
 from .forms import ContactForm
 from .forms import FilterForm
 
-CURRENT_TARIFF = 0.2215
+CURRENT_TARIFF = 0.2413
 
 AVERAGE_LOAD_PROFILE = [0.055654497,
                         0.050756901,
