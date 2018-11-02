@@ -13,7 +13,7 @@ from .forms import HousingForm
 from .forms import ContactForm
 from .forms import FilterForm
 
-CURRENT_TARIFF = 0.2413
+CURRENT_TARIFF = 0.2582
 
 AVERAGE_LOAD_PROFILE = [0.055654497,
                         0.050756901,
@@ -60,13 +60,14 @@ PROVIDER_IMG = {
     'KEPPEL ELECTRIC PTE LTD': 'images/keppel.jpg',
     'OHM ENERGY PTE LTD': 'images/ohm.png',
     'PACIFICLIGHT ENERGY PTE LTD': 'images/pacific.png',
-    'RED DOT POWER PTE LTD': 'images/reddot.jpg',
+    #'RED DOT POWER PTE LTD': 'images/reddot.jpg',
     'SEMBCORP POWER PTE LTD': 'images/sembcorp.jpg',
     'SENOKO ENERGY SUPPLY PTE LTD': 'images/senoko.jpg',
     'SERAYA ENERGY PTE LTD (GENECO)': 'images/geneco.png',
-    'SUN ELECTRIC POWER PTE LTD': 'images/sun.png',
+    #'SUN ELECTRIC POWER PTE LTD': 'images/sun.png',
     'SUNSEAP ENERGY PTE LTD': 'images/sunseap.jpg',
     'TUAS POWER SUPPLY PTE LTD': 'images/tuas.jpg',
+    'UNION POWER PTE LTD': 'images/union.jpg', 
     }
     
 
@@ -250,17 +251,18 @@ def output(request):
         ('best', 'Best Electricity'),
         ('diamond', 'Diamond Electric'),
         ('geneco', 'Geneco'),
-        ('hyflux', 'Hyflux Energy'),
+        #('hyflux', 'Hyflux Energy'),
         ('i switch', 'iswitch'),
         ('keppel', 'Keppel Electric'),
         ('ohm', 'Ohm'),
         ('pacific', 'Pacific Light'),
-        ('reddot', 'RedDotPower'),
+        #('reddot', 'RedDotPower'),
         ('sembcorp', 'Sembcorp'),
         ('senoko', 'Senoko'),
-        ('sun electric', 'Sun Electric'),
+        #('sun electric', 'Sun Electric'),
         ('sunseap', 'Sunseap'),
         ('tuas', 'Tuas'),
+        ('union', 'Union Power'),
         )
 
     PLAN_CHOICES = (
