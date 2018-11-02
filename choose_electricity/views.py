@@ -67,7 +67,7 @@ PROVIDER_IMG = {
     #'SUN ELECTRIC POWER PTE LTD': 'images/sun.png',
     'SUNSEAP ENERGY PTE LTD': 'images/sunseap.jpg',
     'TUAS POWER SUPPLY PTE LTD': 'images/tuas.jpg',
-    'UNION POWER PTE LTD': 'images/union.jpg', 
+    'UNION POWER PTE LTD': 'images/union.png', 
     }
     
 
